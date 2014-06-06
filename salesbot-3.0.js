@@ -12,9 +12,19 @@ function new_game() {
 }
 
 function make_move() {
-    if (get_board()[get_my_x()][get_my_y()])
-        return TAKE;
-
+    if(get_board()[get_my_x()][get_my_y()]){
+		var item = get_board()[get_my_x()][get_my_y()];
+		var plyAmount = get_my_item_count(item)
+		var oppAmount = get_opponent_item_count(item)
+		if( get_total_item_count(item) % 2 == 0 ){
+			var evenHalf = (get_total_item_count(item) / 2) + 1;
+			if(plyAmount < evenHalf || oppAmount < evenHalf ) { then return TAKE; }
+		} else {
+			var oddHalf = Math.ceil(amount / 2);
+			if(plyAmount < oddHalf || oppAmount < oddHalf ) { then return TAKE; }
+		}
+	}
+	
     if(!targets)
         targets = find_best_target();
     var target = targets[next_target];
