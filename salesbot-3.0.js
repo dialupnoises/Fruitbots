@@ -20,7 +20,7 @@ function make_move() {
 			var evenHalf = (get_total_item_count(item) / 2) + 1;
 			if(plyAmount < evenHalf || oppAmount < evenHalf ) { then return TAKE; }
 		} else {
-			var oddHalf = Math.ceil(amount / 2);
+			var oddHalf = Math.ceil(get_total_item_count(item) / 2);
 			if(plyAmount < oddHalf || oppAmount < oddHalf ) { then return TAKE; }
 		}
 	}
