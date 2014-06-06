@@ -18,10 +18,10 @@ function make_move() {
 		var oppAmount = get_opponent_item_count(item)
 		if( get_total_item_count(item) % 2 == 0 ){
 			var evenHalf = (get_total_item_count(item) / 2) + 1;
-			if(plyAmount < evenHalf || oppAmount < evenHalf ) { return TAKE; }
+			if(plyAmount < evenHalf && oppAmount < evenHalf ) { return TAKE; }
 		} else {
 			var oddHalf = Math.ceil(get_total_item_count(item) / 2);
-			if(plyAmount < oddHalf || oppAmount < oddHalf ) { return TAKE; }
+			if(plyAmount < oddHalf && oppAmount < oddHalf ) { return TAKE; }
 		}
 	}
 	
